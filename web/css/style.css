@@ -1,0 +1,208 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,300&display=swap");
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#now-playing-layout {
+  background-color: #121212;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+}
+
+/***** Playback *****/
+
+.c-playback__controls__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-playback__controls {
+  display: inline-grid;
+  grid-template-columns: 1fr auto 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.c-playback__controls button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.c-playback__controls__button {
+  width: 32px;
+  height: 32px;
+}
+.c-playback__controls__button svg {
+  width: inherit;
+  height: inherit;
+  fill: #676767;
+}
+
+.c-playback__random,
+.c-playback__repeat {
+  width: 30px;
+  height: 22px;
+  fill: #676767;
+}
+.c-playback__random svg,
+.c-playback__repeat svg {
+  width: inherit;
+  height: inherit;
+  opacity: 0.5;
+}
+
+.c-playback__controls__group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.c-playback__user {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.c-playback__user__vol {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-playback__user__toggle {
+  margin-right: 20px;
+}
+
+.c-input-slider {
+  display: flex;
+  align-items: center;
+}
+.c-input-slider input {
+  width: 70px !important;
+}
+.c-input-slider svg {
+  width: 16px;
+  height: 16px;
+  fill: #999;
+  margin-right: 4px;
+}
+
+.c-playback__toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+}
+.c-playback__toggle svg {
+  width: 24px;
+  height: 18px;
+  fill: #c4c4c6;
+}
+
+.c-button {
+  appearance: none;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 13px;
+  background-color: #0076ff;
+}
+.c-button svg {
+  fill: #fff;
+  width: 10px;
+  height: 11px;
+  margin-right: 4px;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+#album {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2.8vw;
+  color: white;
+  font-weight: 100;
+  font-style: bold;
+  padding-left: 12.5%;
+}
+#album-art {
+  height: 100%;
+  width: 75%;
+  justify-self: center; /* Center horizontally within the grid cell */
+  align-self: center; /* Center vertically within the grid cell */
+}
+#artwork {
+  transition: opacity 1s;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 2%;
+}
+
+#track {
+  display: inline-block;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 4.2vw;
+  font-weight: 600;
+  color: white;
+  text-align: left;
+}
+
+#artist-name {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  grid-column: 1 / 2;
+  text-align: left;
+  grid-row: 4 / 5;
+}
+
+#artist {
+  display: inline-block;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2.8vw;
+  color: #c7cacc;
+}
+
+#playback-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#controls {
+  padding-right: 12.5%;
+}
+
+/* Flex Box */
+.flex-parent {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: space-around;
+}
+.inline-flex-parent {
+  display: inline-flex;
+  flex-flow: row;
+  height: 100%;
+  width: 100%;
+}
+/* Flex Items */
+.flex-item {
+  height: 100%;
+  display: flex; /* be a flexbox too */
+  align-items: center;
+}
+
+#track_artist {
+  padding-left: 12.5%;
+}
+
+#bottom_controls {
+  justify-content: space-between;
+}
