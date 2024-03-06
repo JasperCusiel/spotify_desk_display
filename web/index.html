@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <script type="text/javascript" src="/eel.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Spotify Currently Playing</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="flex-parent" id="now-playing-layout">
+      <!-- main layout -->
+      <div class="flex-item">
+        <!-- album name -->
+        <span id="album" text="album"></span>
+      </div>
+      <div class="flex-item" , id="album-art">
+        <!-- album art -->
+        <img id="artwork" src="/artwork-placeholder.png" />
+      </div>
+      <div class="flex-item">
+        <!-- bottom controls -->
+
+        <div class="inline-flex-parent" , id="bottom_controls">
+          <div class="flex-item" , id="track_artist">
+            <div class="flex-parent">
+              <div class="flex-item">
+                <span id="track" text="track"></span>
+              </div>
+              <div class="flex-item">
+                <span id="artist" text="artist"></span>
+              </div>
+            </div>
+          </div>
+          <div class="flex-item" , id="controls">
+            <div id="playback-controls">
+              <div class="c-playback__controls__wrapper">
+                <div class="c-playback__controls">
+                  <button class="c-playback__random" id="shuffle-button">
+                    <svg
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 30 22"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xml:space="preserve"
+                      xmlns:serif="http://www.serif.com/"
+                      style="
+                        fill-rule: evenodd;
+                        clip-rule: evenodd;
+                        stroke-linejoin: round;
+                        stroke-miterlimit: 1.41421;
+                      "
+                    >
+                      <path
+                        d="M19.542,7l0,-1.032c0,-0.259 0.175,-0.468 0.392,-0.468c0.066,0 0.131,0.02 0.189,0.058l2.715,1.782c0.19,0.125 0.259,0.409 0.155,0.635c-0.036,0.078 -0.089,0.142 -0.155,0.185l-2.715,1.782c-0.19,0.125 -0.428,0.042 -0.533,-0.184c-0.032,-0.07 -0.048,-0.147 -0.048,-0.226l0,-1.032l-0.377,0c-0.524,0 -1.031,0.15 -1.466,0.423c-0.235,0.148 -0.45,0.333 -0.633,0.551l-1.292,1.526l1.292,1.526c0.183,0.218 0.398,0.403 0.633,0.551c0.435,0.273 0.942,0.423 1.466,0.423l0.377,0l0,-1.032c0,-0.259 0.175,-0.468 0.392,-0.468c0.066,0 0.131,0.02 0.189,0.058l2.715,1.782c0.19,0.125 0.259,0.409 0.155,0.635c-0.036,0.078 -0.089,0.142 -0.155,0.185l-2.715,1.782c-0.19,0.125 -0.428,0.042 -0.533,-0.184c-0.032,-0.07 -0.048,-0.147 -0.048,-0.226l0,-1.032l-0.377,0c-0.673,0 -1.327,-0.159 -1.913,-0.455c-0.504,-0.254 -0.958,-0.609 -1.332,-1.05l-1.128,-1.334l-1.129,1.334c-0.361,0.426 -0.797,0.772 -1.281,1.024c-0.6,0.312 -1.272,0.481 -1.964,0.481l-1.126,0c-0.415,0 -0.75,-0.336 -0.75,-0.75c0,-0.414 0.335,-0.75 0.75,-0.75l1.126,0c0.479,0 0.944,-0.125 1.352,-0.355c0.28,-0.158 0.534,-0.367 0.748,-0.619l1.291,-1.526l-1.291,-1.526c-0.214,-0.252 -0.468,-0.461 -0.748,-0.619c-0.408,-0.23 -0.873,-0.355 -1.352,-0.355l-1.126,0c-0.415,0 -0.75,-0.336 -0.75,-0.75c0,-0.414 0.335,-0.75 0.75,-0.75l1.126,0c0.692,0 1.364,0.169 1.964,0.481c0.484,0.252 0.92,0.598 1.281,1.024l1.129,1.334l1.128,-1.334c0.374,-0.441 0.828,-0.796 1.332,-1.05c0.586,-0.296 1.24,-0.455 1.913,-0.455l0.377,0Z"
+                        style="fill-rule: nonzero"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="c-playback__controls__group">
+                    <button
+                      class="c-playback__controls__button"
+                      id="previous-track-button"
+                    >
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 34 34"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xml:space="preserve"
+                        xmlns:serif="http://www.serif.com/"
+                        style="
+                          fill-rule: evenodd;
+                          clip-rule: evenodd;
+                          stroke-linejoin: round;
+                          stroke-miterlimit: 1.41421;
+                        "
+                      >
+                        <path
+                          d="M26.97,23c0.536,0 1.03,-0.38 1.03,-1.124l0,-9.752c0,-0.744 -0.494,-1.124 -1.03,-1.124c-0.294,0 -0.57,0.097 -0.889,0.283l-8.26,4.617c-0.436,0.243 -0.729,0.494 -0.804,0.874l0,-4.65c0,-0.744 -0.503,-1.124 -1.031,-1.124c-0.301,0 -0.578,0.097 -0.896,0.283l-8.261,4.617c-0.511,0.283 -0.829,0.574 -0.829,1.1c0,0.518 0.318,0.817 0.829,1.1l8.261,4.617c0.318,0.186 0.595,0.283 0.896,0.283c0.528,0 1.031,-0.38 1.031,-1.124l0,-4.658c0.075,0.388 0.368,0.639 0.804,0.882l8.26,4.617c0.319,0.186 0.595,0.283 0.889,0.283Z"
+                          style="fill-rule: nonzero"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button
+                      class="c-playback__controls__button"
+                      id="play-pause-button"
+                    >
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 34 34"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xml:space="preserve"
+                        xmlns:serif="http://www.serif.com/"
+                        style="
+                          fill-rule: evenodd;
+                          clip-rule: evenodd;
+                          stroke-linejoin: round;
+                          stroke-miterlimit: 1.41421;
+                        "
+                      >
+                        <path
+                          d="M28.228,18.327l-16.023,8.983c-0.99,0.555 -2.205,-0.17 -2.205,-1.318l0,-17.984c0,-1.146 1.215,-1.873 2.205,-1.317l16.023,8.982c1.029,0.577 1.029,2.077 0,2.654Z"
+                          style="fill-rule: nonzero"
+                        ></path>
+                      </svg>
+                    </button>
+                    <button
+                      class="c-playback__controls__button"
+                      id="next-track-button"
+                    >
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 34 34"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xml:space="preserve"
+                        xmlns:serif="http://www.serif.com/"
+                        style="
+                          fill-rule: evenodd;
+                          clip-rule: evenodd;
+                          stroke-linejoin: round;
+                          stroke-miterlimit: 1.41421;
+                        "
+                      >
+                        <path
+                          d="M8.307,23c-0.536,0 -1.031,-0.38 -1.031,-1.124l0,-9.752c0,-0.744 0.495,-1.124 1.031,-1.124c0.293,0 0.569,0.097 0.888,0.283l8.26,4.617c0.436,0.243 0.729,0.494 0.805,0.874l0,-4.65c0,-0.744 0.502,-1.124 1.03,-1.124c0.302,0 0.578,0.097 0.896,0.283l8.261,4.617c0.511,0.283 0.829,0.574 0.829,1.1c0,0.518 -0.318,0.817 -0.829,1.1l-8.261,4.617c-0.318,0.186 -0.594,0.283 -0.896,0.283c-0.528,0 -1.03,-0.38 -1.03,-1.124l0,-4.658c-0.076,0.388 -0.369,0.639 -0.805,0.882l-8.26,4.617c-0.319,0.186 -0.595,0.283 -0.888,0.283Z"
+                          style="fill-rule: nonzero"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <button class="c-playback__repeat" id="repeat-button">
+                    <svg
+                      width="100%"
+                      height="100%"
+                      viewBox="0 0 30 26"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xml:space="preserve"
+                      xmlns:serif="http://www.serif.com/"
+                      style="
+                        fill-rule: evenodd;
+                        clip-rule: evenodd;
+                        stroke-linejoin: round;
+                        stroke-miterlimit: 1.41421;
+                      "
+                      id="repeat-svg"
+                    >
+                      <path
+                        d="M17,7l0,-1.032c0,-0.259 0.176,-0.468 0.392,-0.468c0.066,0 0.131,0.02 0.189,0.058l2.716,1.782c0.19,0.125 0.259,0.409 0.154,0.635c-0.035,0.078 -0.089,0.142 -0.154,0.185l-2.716,1.782c-0.19,0.125 -0.428,0.042 -0.532,-0.184c-0.032,-0.07 -0.049,-0.147 -0.049,-0.226l0,-1.032l-5.092,0c-0.61,0 -1.055,0.1 -1.41,0.29c-0.309,0.165 -0.543,0.399 -0.708,0.708c-0.159,0.297 -0.255,0.658 -0.282,1.125c-0.004,0.06 -0.011,0.154 -0.024,0.281c-0.071,0.34 -0.372,0.596 -0.734,0.596c-0.414,0 -0.75,-0.336 -0.75,-0.75l0,-0.25c0,-0.866 0.162,-1.139 0.467,-1.709c0.306,-0.571 0.753,-1.018 1.324,-1.324c0.57,-0.305 1.251,-0.467 2.117,-0.467l5.092,0Zm-4,8l0,1.006c0,0.083 -0.017,0.165 -0.049,0.238c-0.104,0.239 -0.342,0.326 -0.532,0.195l-2.716,-1.881c-0.065,-0.045 -0.119,-0.113 -0.154,-0.195c-0.105,-0.239 -0.036,-0.539 0.154,-0.671l2.716,-1.881c0.058,-0.04 0.123,-0.061 0.189,-0.061c0.216,0 0.392,0.221 0.392,0.494l0,1.256l5.092,0c0.61,0 1.055,-0.1 1.41,-0.29c0.309,-0.165 0.543,-0.399 0.708,-0.708c0.159,-0.297 0.255,-0.658 0.282,-1.125c0.004,-0.06 0.011,-0.154 0.024,-0.281c0.071,-0.34 0.372,-0.596 0.734,-0.596c0.414,0 0.75,0.336 0.75,0.75l0,0.25c0,0.866 -0.162,1.139 -0.467,1.709c-0.306,0.571 -0.753,1.018 -1.324,1.324c-0.57,0.305 -1.251,0.467 -2.117,0.467l-5.092,0Z"
+                        style="fill-rule: nonzero"
+                      ></path>
+                      <circle
+                        cx="50%"
+                        cy="92%"
+                        r="8%"
+                        fill="#1DB954"
+                        class="invisible"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <script type="text/javascript">
+                  eel.expose(change_repeat_colour);
+                  var repeatSVG = document.getElementById("repeat-svg");
+                  function change_repeat_colour(state) {
+                    if (state == 1) {
+                      repeatSVG.setAttribute("fill", "#1DB954");
+                      repeatSVG.setAttribute("opacity", "1"); // Change to green
+                      document
+                        .getElementById("repeat-button")
+                        .querySelector("svg > circle")
+                        .classList.remove("invisible");
+                    } else {
+                      repeatSVG.setAttribute("fill", "#676767");
+                      repeatSVG.setAttribute("opacity", "0.5"); // set default colour
+                      document
+                        .getElementById("repeat-button")
+                        .querySelector("svg > circle")
+                        .classList.add("invisible");
+                    }
+                  }
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const playPauseButton = document.getElementById("play-pause-button");
+      const nextTrackButton = document.getElementById("next-track-button");
+      const previousTrackButton = document.getElementById(
+        "previous-track-button"
+      );
+      const shuffleButton = document.getElementById("shuffle-button");
+      const repeatButton = document.getElementById("repeat-button");
+
+      playPauseButton.addEventListener("click", () => {
+        eel.playerControl(1);
+      });
+      nextTrackButton.addEventListener("click", () => {
+        eel.playerControl(2);
+      });
+      previousTrackButton.addEventListener("click", () => {
+        eel.playerControl(3);
+      });
+      shuffleButton.addEventListener("click", () => {
+        eel.playerControl(4);
+      });
+      repeatButton.addEventListener("click", () => {
+        eel.playerControl(5);
+      });
+    </script>
+    <script type="text/javascript">
+      let prevAlbumArtUrl = ""; // Declare the variable outside the function
+      function updateImage() {
+        eel.get_image_url()((data) => {
+          const artistName = data.artist_name;
+          const songTitle = data.song_title;
+          const albumName = data.album_name;
+          const length = data.length;
+          const progress = data.progress;
+          const albumArtUrl = data.album_art_url;
+          if (prevAlbumArtUrl !== albumArtUrl) {
+            // Use the values to update the UI
+            document.getElementById("artist").innerText = artistName;
+            document.getElementById("track").innerText = songTitle;
+            document.getElementById("album").innerText = albumName;
+
+            const albumArt = document.getElementById("artwork");
+            albumArt.style.opacity = 0; // Fade out the current image
+            albumArt.addEventListener("transitionend", () => {
+              albumArt.src = albumArtUrl; // Update the image source
+              albumArt.onload = () => {
+                albumArt.style.opacity = 1; // Fade in the new image
+              };
+            });
+          }
+          prevAlbumArtUrl = albumArtUrl;
+        });
+      }
+
+      // Call the updateImage function every 5 seconds
+      setInterval(updateImage, 5000);
+    </script>
+  </body>
+</html>
