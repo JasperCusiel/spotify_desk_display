@@ -9,6 +9,8 @@ except ImportError:
 @eel.expose
 def get_image_url():
     current_track = spotify_object.current_playback()
+    # res = spotify_object.devices()
+    # print(res)
     if current_track is not None and current_track["is_playing"]:
         current = spotify_object.currently_playing()
         if current is not None:
@@ -71,9 +73,12 @@ def playerControl(functionSelect):
         case 4:
             if current_track["shuffle_state"]:
                 spotify_object.shuffle(False)
+                print("shuffle false")
+                eel.change_shuffle_colour(1)
             else:
                 spotify_object.shuffle(True)
-            print("shuffle")
+                print("shuffle true")
+                eel.change_shuffle_colour(0)
         case 5:
             if current_track["repeat_state"] == "off" :
                 spotify_object.repeat("context")
@@ -83,13 +88,6 @@ def playerControl(functionSelect):
                 spotify_object.repeat("off")
                 eel.change_repeat_colour(0)
             
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
     SPOTIPY_CLIENT_ID = "0f90348c84d442aa8eb2390ac74d2c9e"

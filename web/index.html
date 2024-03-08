@@ -20,7 +20,7 @@
         <!-- album art -->
         <img id="artwork" src="/artwork-placeholder.png" />
       </div>
-      <div class="flex-item">
+      <div class="flex-item" , id="bottom_bar">
         <!-- bottom controls -->
 
         <div class="inline-flex-parent" , id="bottom_controls">
@@ -54,11 +54,19 @@
                         stroke-linejoin: round;
                         stroke-miterlimit: 1.41421;
                       "
+                      id="shuffle-svg"
                     >
                       <path
                         d="M19.542,7l0,-1.032c0,-0.259 0.175,-0.468 0.392,-0.468c0.066,0 0.131,0.02 0.189,0.058l2.715,1.782c0.19,0.125 0.259,0.409 0.155,0.635c-0.036,0.078 -0.089,0.142 -0.155,0.185l-2.715,1.782c-0.19,0.125 -0.428,0.042 -0.533,-0.184c-0.032,-0.07 -0.048,-0.147 -0.048,-0.226l0,-1.032l-0.377,0c-0.524,0 -1.031,0.15 -1.466,0.423c-0.235,0.148 -0.45,0.333 -0.633,0.551l-1.292,1.526l1.292,1.526c0.183,0.218 0.398,0.403 0.633,0.551c0.435,0.273 0.942,0.423 1.466,0.423l0.377,0l0,-1.032c0,-0.259 0.175,-0.468 0.392,-0.468c0.066,0 0.131,0.02 0.189,0.058l2.715,1.782c0.19,0.125 0.259,0.409 0.155,0.635c-0.036,0.078 -0.089,0.142 -0.155,0.185l-2.715,1.782c-0.19,0.125 -0.428,0.042 -0.533,-0.184c-0.032,-0.07 -0.048,-0.147 -0.048,-0.226l0,-1.032l-0.377,0c-0.673,0 -1.327,-0.159 -1.913,-0.455c-0.504,-0.254 -0.958,-0.609 -1.332,-1.05l-1.128,-1.334l-1.129,1.334c-0.361,0.426 -0.797,0.772 -1.281,1.024c-0.6,0.312 -1.272,0.481 -1.964,0.481l-1.126,0c-0.415,0 -0.75,-0.336 -0.75,-0.75c0,-0.414 0.335,-0.75 0.75,-0.75l1.126,0c0.479,0 0.944,-0.125 1.352,-0.355c0.28,-0.158 0.534,-0.367 0.748,-0.619l1.291,-1.526l-1.291,-1.526c-0.214,-0.252 -0.468,-0.461 -0.748,-0.619c-0.408,-0.23 -0.873,-0.355 -1.352,-0.355l-1.126,0c-0.415,0 -0.75,-0.336 -0.75,-0.75c0,-0.414 0.335,-0.75 0.75,-0.75l1.126,0c0.692,0 1.364,0.169 1.964,0.481c0.484,0.252 0.92,0.598 1.281,1.024l1.129,1.334l1.128,-1.334c0.374,-0.441 0.828,-0.796 1.332,-1.05c0.586,-0.296 1.24,-0.455 1.913,-0.455l0.377,0Z"
                         style="fill-rule: nonzero"
                       ></path>
+                      <circle
+                        cx="50%"
+                        cy="92%"
+                        r="8%"
+                        fill="#1DB954"
+                        class="invisible"
+                      />
                     </svg>
                   </button>
                   <div class="c-playback__controls__group">
@@ -189,6 +197,27 @@
                       repeatSVG.setAttribute("opacity", "0.5"); // set default colour
                       document
                         .getElementById("repeat-button")
+                        .querySelector("svg > circle")
+                        .classList.add("invisible");
+                    }
+                  }
+                </script>
+                <script type="text/javascript">
+                  eel.expose(change_shuffle_colour);
+                  var shuffleSVG = document.getElementById("shuffle-svg");
+                  function change_shuffle_colour(state) {
+                    if (state == 1) {
+                      shuffleSVG.setAttribute("fill", "#1DB954");
+                      shuffleSVG.setAttribute("opacity", "1"); // Change to green
+                      document
+                        .getElementById("shuffle-button")
+                        .querySelector("svg > circle")
+                        .classList.remove("invisible");
+                    } else {
+                      shuffleSVG.setAttribute("fill", "#676767");
+                      shuffleSVG.setAttribute("opacity", "0.5"); // set default colour
+                      document
+                        .getElementById("shuffle-button")
                         .querySelector("svg > circle")
                         .classList.add("invisible");
                     }
